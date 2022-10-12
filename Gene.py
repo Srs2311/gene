@@ -48,7 +48,7 @@ class Gene(discord.Client):
                 await message.channel.send(response)
 
             elif mess.startswith("!tf2 "):
-                tf2wiki = str(message.content).lstrip("!tf2 ")
+                tf2wiki = str(message.content).replace("!tf2 ", "")
                 print(tf2wiki)
                 tf2wiki = tf2wiki.replace(" " , "_")
                 print(tf2wiki)
