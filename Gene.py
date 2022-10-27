@@ -108,6 +108,7 @@ class Gene(discord.Client):
         Kerbal = 1029246107345232032
         Purple = 1029246074407374920
         Pink = 1029246086092705862
+        movienight = 1034619613721395201
 
 
         # if payload.message_id != self.target_message_id:
@@ -214,6 +215,12 @@ class Gene(discord.Client):
                 print("added " + strmember + " fortnite squad " + payload.emoji.name)
                 role = discord.utils.get(guild.roles, name="Fortnite Squad")
                 await payload.member.add_roles(role)
+        elif payload.message_id == movienight:
+            print(payload.emoji)
+            if payload.emoji.name == "🎥":
+                print("added " + strmember + " Movie Night " + payload.emoji.name)
+                role = discord.utils.get(guild.roles, name="Movie Night")
+                await payload.member.add_roles(role)
 
     async def on_raw_reaction_remove(self, payload):
         # removes a role based on a reaction emoji
@@ -242,6 +249,7 @@ class Gene(discord.Client):
         Kerbal = 1029246107345232032
         Purple = 1029246074407374920
         Pink = 1029246086092705862
+        movienight = 1034619613721395201
 
         # if payload.message_id != self.target_message_id:
         # return
@@ -341,6 +349,11 @@ class Gene(discord.Client):
             if payload.emoji.name == "jonesy":
                 print("removed " + strmember + " fortnite squad " + payload.emoji.name)
                 role = discord.utils.get(guild.roles, name="Fortnite Squad")
+                await member.remove_roles(role)
+        elif payload.message_id == movienight:
+            if payload.emoji.name == "movie_camera":
+                print("removed " + strmember + " Movie Night " + payload.emoji.name)
+                role = discord.utils.get(guild.roles, name="Movie Night")
                 await member.remove_roles(role)
     # async def on_message(message):
     #   if message.author == client.user:
